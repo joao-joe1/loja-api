@@ -1,15 +1,14 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from "class-validator";
 
-export class CriandoUsuarioDTO {
-
-    @IsNotEmpty({message: 'Nome está vázio'})
+export class CriarUsuarioDTO {
     @IsString()
+    @IsNotEmpty({message: 'Nome inválido.'})
     nome: string;
 
-    @IsEmail(undefined, {message: 'E-mail inválido.'})
-    @IsString()
+    @IsEmail()
+    @IsString({message: 'E-mail inválido'})
     email: string;
 
-    @MinLength(6, {message: 'Senha não possui 6 caracteres.'})
+    @MinLength(6, {message: 'Senha deve ter no minimo 6 caracteres.'})
     senha: string;
 }

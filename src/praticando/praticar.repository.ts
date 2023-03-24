@@ -1,17 +1,15 @@
 import { Injectable } from "@nestjs/common";
+import { UsuariopEntity } from "./DTO/usuarioP.entity";
 
 @Injectable()
-
 export class PraticarRepository {
+    private PraticaUsuarios: UsuariopEntity[] = [];
 
-    private usuarios = [];
-
-
-    async salvar(usuario) {
-        this.usuarios.push(usuario)
+    async salvar(usuario: UsuariopEntity) {
+        this.PraticaUsuarios.push(usuario)
     }
 
     async lista() {
-        return this.usuarios;
+        return this.PraticaUsuarios
     }
 }
